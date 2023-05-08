@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <% if (currentUser) {%>  <!-- Check if the currentUser object exists -->
+    <h1>WELCOME BACK <%= currentUser.username %></h1> <!-- Display a welcome message with the user's username -->
+    <a href="/log-out">LOG OUT</a> <!-- Add a link to log out of the app -->
+  <% } else { %> <!-- If currentUser does not exist -->
+    <h1>please log in</h1> <!-- Display a message prompting the user to log in -->
+    <% messages.forEach((msg) =>{ %> <!-- If there are any messages to display (e.g. incorrect password), loop through them and display them -->
+      <p><%= msg %></p>
+   <% }) %>
+    <form action="/log-in" method="POST"> <!-- Display a form for the user to enter their login credentials -->
+      <label for="username">Username</label>
+      <input name="username" placeholder="username" type="text" />
+      <label for="password">Password</label>
+      <input name="password" type="password" />
+      <button>Log In</button>
+    </form>
+  <%}%>
+</body>
+</html>
