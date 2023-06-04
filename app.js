@@ -161,3 +161,19 @@ app.get('/restricted', authMiddleware, (req, res) => {
 })
 
 app.listen(3000, () => console.log("app listening on port 3000!"));
+
+
+/*
+Postman
+1. POST http://localhost:3000/sign-up
+
+Body -> x-www-form-urlencoded -> username: username, password: password -> send
+(created a new user)
+
+2. POST http://localhost:3000/log-in
+Body -> x-www-form-urlencoded -> username: username, password: password -> send
+(welcome msg)
+
+3. GET http://localhost:3000/restricted -> send
+(display the restricted page)
+*/
